@@ -61,3 +61,10 @@ nx format:write     # returns all unformatted files AND formats them
 nx lint frontend
 nx lint backend
 ```
+
+## How to test both apps
+
+```bash
+nx test frontend
+nx test backend
+```
