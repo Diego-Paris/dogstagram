@@ -16,46 +16,48 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
 
---- 
+---
+
 # Notes
 
 ## Generated the frontend(NextJS) using the following commands
+
 ```bash
 npm install --save-dev @nrwl/next
 nx g @nrwl/next:app frontend
 ```
 
 ## Generated the backend(NestJS) using the following commands
+
 ```bash
-npm install --save-dev @nrwl/nest   
-nx g @nrwl/nest:app backend   
+npm install --save-dev @nrwl/nest
+nx g @nrwl/nest:app backend
 ```
 
 ## How to run both apps for development
+
 ```bash
 nx serve frontend
 nx serve backend
 ```
 
 ## How to run apps for production
+
 ```bash
 nx serve frontend --prod
 nx serve backend --prod
 ```
 
 ## How to auto format all apps
+
 ```bash
 nx format:check     # returns all un-formatted files, doesn't format
 nx format:write     # returns all unformatted files AND formats them
 ```
 
 ## How to lint both apps
+
 ```bash
 nx lint frontend
 nx lint backend
-```
-
-## How to view dependency graph across apps
-```bash
-nx graph
 ```
