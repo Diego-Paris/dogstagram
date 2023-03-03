@@ -42,3 +42,20 @@ nx serve backend
 nx serve frontend --prod
 nx serve backend --prod
 ```
+
+## How to auto format all apps
+```bash
+nx format:check     # returns all un-formatted files, doesn't format
+nx format:write     # returns all unformatted files AND formats them
+```
+
+## How to lint both apps
+```bash
+nx lint frontend
+nx lint backend
+```
+
+## How to view dependency graph across apps
+```bash
+nx graph
+```
