@@ -73,4 +73,10 @@ nx test backend
 
 ```bash
 nx g @nrwl/nest:resource users --project=backend    # add --dry-run to see changes without writing to disk
+
+# IMPORTANT:
+# For some reason, generating the users resource works as expected, EXCEPT it does not
+# automatically import the UsersModule into the AppModule. You will have to do this manually
+# or else it will not work. Use the UsersModule as an example for future resources.
+
 ```
