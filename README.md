@@ -18,6 +18,10 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 ---
 
+## Automatic Swagger API Documentation
+
+Visit the API's documentation at [localhost:3333/api/swagger](http://localhost:3333/api/swagger)
+
 # Notes
 
 ## Generated the frontend(NextJS) using the following commands
@@ -78,5 +82,4 @@ nx g @nrwl/nest:resource users --project=backend    # add --dry-run to see chang
 # For some reason, generating the users resource works as expected, EXCEPT it does not
 # automatically import the UsersModule into the AppModule. You will have to do this manually
 # or else it will not work. Use the UsersModule as an example for future resources.
-
 ```
