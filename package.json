@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "frontend": "nx serve frontend",
+    "backend": "nx serve backend",
     "test": "nx test frontend && nx test backend",
     "format": "nx format:write",
     "lint": "nx lint frontend && nx lint backend",
