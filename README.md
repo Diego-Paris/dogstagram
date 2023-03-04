@@ -68,3 +68,9 @@ nx lint backend
 nx test frontend
 nx test backend
 ```
+
+## How to add resource to the nestjs backend
+
+```bash
+nx g @nrwl/nest:resource users --project=backend    # add --dry-run to see changes without writing to disk
+```
