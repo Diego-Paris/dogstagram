@@ -1,4 +1,5 @@
 import { Test } from '@nestjs/testing';
+import moment from 'moment';
 
 import { AppService } from './app.service';
 
@@ -14,8 +15,14 @@ describe('AppService', () => {
   });
 
   describe('getData', () => {
-    it('should return "Welcome to backend!"', () => {
-      expect(service.getData()).toEqual({ message: 'Welcome to backend!' });
+    const currentDate = moment();
+    const currentDateFormatted = currentDate.format(
+      'MMMM D, YYYY [at] h:mm:ss A'
+    );
+    it('should return "Backend is running!🛸 - Pinged ${MMMM D, YYYY [at] h:mm:ss A}🏓"', () => {
+      expect(service.getData()).toEqual({
+        message: `Backend is running!🛸 - Pinged ${currentDateFormatted}🏓`,
+      });
     });
   });
 });

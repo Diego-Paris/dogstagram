@@ -1,24 +1,26 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { AppModule } from './app.module';
+import request from 'supertest';
+import { INestApplication } from '@nestjs/common';
 
 describe('AppController', () => {
-  let app: TestingModule;
+  let app: INestApplication;
+  let server: unknown;
 
   beforeAll(async () => {
-    app = await Test.createTestingModule({
-      controllers: [AppController],
-      providers: [AppService],
+    const moduleFixture = await Test.createTestingModule({
+      imports: [AppModule],
     }).compile();
+
+    app = moduleFixture.createNestApplication();
+    await app.init();
+    server = app.getHttpServer(); // get the HTTP server instance
   });
 
   describe('getData', () => {
-    it('should return "Welcome to backend!"', () => {
-      const appController = app.get<AppController>(AppController);
-      expect(appController.getData()).toEqual({
-        message: 'Welcome to backend!',
-      });
+    it('should return 200 status code for GET /', () => {
+      return request(server).get('/').expect(200);
     });
   });
 });
