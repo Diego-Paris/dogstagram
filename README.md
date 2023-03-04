@@ -16,6 +16,11 @@ Run `npx nx connect-to-nx-cloud` to enable [remote caching](https://nx.app) and 
 
 Visit the [Nx Documentation](https://nx.dev) to learn more.
 
+# Todos:
+
+add docker database
+add prisma
+
 ---
 
 ## Automatic Swagger API Documentation
@@ -83,3 +88,7 @@ nx g @nrwl/nest:resource users --project=backend    # add --dry-run to see chang
 # automatically import the UsersModule into the AppModule. You will have to do this manually
 # or else it will not work. Use the UsersModule as an example for future resources.
 ```
+
+## Used this article to create a postgres database with pgadmin inside of docker compose
+
+[Run PostgreSQL and pgAdmin in docker for local development using docker compose](https://belowthemalt.com/2021/06/09/run-postgresql-and-pgadmin-in-docker-for-local-development-using-docker-compose/)
