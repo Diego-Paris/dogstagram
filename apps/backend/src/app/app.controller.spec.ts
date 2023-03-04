@@ -18,6 +18,10 @@ describe('AppController', () => {
     server = app.getHttpServer(); // get the HTTP server instance
   });
 
+  afterAll(async () => {
+    await app.close();
+  });
+
   describe('getData', () => {
     it('should return 200 status code for GET /', () => {
       return request(server).get('/').expect(200);
