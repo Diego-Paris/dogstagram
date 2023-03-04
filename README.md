@@ -18,7 +18,6 @@ Visit the [Nx Documentation](https://nx.dev) to learn more.
 
 # Todos:
 
-add docker database
 add prisma
 
 ---
