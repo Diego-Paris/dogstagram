@@ -91,3 +91,29 @@ nx g @nrwl/nest:resource users --project=backend    # add --dry-run to see chang
 ## Used this article to create a postgres database with pgadmin inside of docker compose
 
 [Run PostgreSQL and pgAdmin in docker for local development using docker compose](https://belowthemalt.com/2021/06/09/run-postgresql-and-pgadmin-in-docker-for-local-development-using-docker-compose/)
+
+---
+
+# Prisma
+
+## Prisma has issues with segmentation faults, so I had to downgrade from node v18 to node v16
+
+[Check out this open github issue here](https://github.com/prisma/prisma/issues/10649)
+
+## command to run migrations based on the schema inside of the prisma folder
+
+```bash
+npx prisma migrate dev --preview-feature
+```
+
+## Use Prisma Studio as GUI for viewing and managing database
+
+```bash
+npx prisma studio
+```
+
+## Generate the prisma client to use it in your code
+Run this command after every change done to prisma models
+```bash
+npx prisma generate
+```
