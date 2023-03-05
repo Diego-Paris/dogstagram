@@ -113,7 +113,9 @@ npx prisma studio
 ```
 
 ## Generate the prisma client to use it in your code
+
 Run this command after every change done to prisma models
+
 ```bash
 npx prisma generate
 ```
