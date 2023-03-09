@@ -101,7 +101,9 @@ nx g @nrwl/nest:resource users --project=backend    # add --dry-run to see chang
 [Check out this open github issue here](https://github.com/prisma/prisma/issues/10649)
 
 ## command to run migrations based on the schema inside of the prisma folder
+
 we write dev so it is dev only
+
 ```bash
 npx prisma migrate dev --preview-feature
 ```
