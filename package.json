@@ -8,6 +8,8 @@
     "test": "nx test frontend && nx test backend",
     "format": "nx format:write",
     "lint": "nx lint frontend && nx lint backend",
+    "migration": "npx prisma migrate dev --preview-feature && npx prisma generate",
+    "studio": "npx prisma studio",
     "prepare": "husky install"
   },
   "private": true,
