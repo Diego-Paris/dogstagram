@@ -8,6 +8,7 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { AppModule } from './app/app.module';
+import { DatabaseService } from './database/database.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -20,6 +21,8 @@ async function bootstrap() {
     ],
   });
   setupOpenApi(app);
+  const databaseService = app.get(DatabaseService);
+  await databaseService.enableShutdownHooks(app);
 
   const port = process.env.PORT || 3333;
   await app.listen(port);
