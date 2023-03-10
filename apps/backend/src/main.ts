@@ -35,6 +35,7 @@ function setupOpenApi(app: INestApplication) {
   const config = new DocumentBuilder()
     .setTitle('API Documentation')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('swagger', app, document, { useGlobalPrefix: true });
