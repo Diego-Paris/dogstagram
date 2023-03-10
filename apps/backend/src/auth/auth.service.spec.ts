@@ -34,7 +34,9 @@ describe('Auth Flow', () => {
 
   describe('signup', () => {
     beforeAll(async () => {
-      const user_exists: User = await prisma.user.findUnique({ where: { email: user.email } });
+      const user_exists: User = await prisma.user.findUnique({
+        where: { email: user.email },
+      });
       if (user_exists) {
         await prisma.user.delete({ where: { email: user.email } });
       }
