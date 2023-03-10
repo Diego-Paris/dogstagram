@@ -26,12 +26,15 @@ describe('Auth Flow', () => {
   });
 
   afterAll(async () => {
+    prisma.user.create({
+      data: user,
+    });
     await moduleRef.close();
   });
 
   describe('signup', () => {
     beforeAll(async () => {
-      await prisma.cleanDatabase();
+      await prisma.user.delete({ where: { email: user.email } });
     });
 
     it('should signup', async () => {
@@ -61,7 +64,7 @@ describe('Auth Flow', () => {
 
   describe('signin', () => {
     beforeAll(async () => {
-      await prisma.cleanDatabase();
+      await prisma.user.delete({ where: { email: user.email } });
     });
     it('should throw if no existing user', async () => {
       let tokens: Tokens | undefined;
@@ -109,7 +112,7 @@ describe('Auth Flow', () => {
 
   describe('logout', () => {
     beforeAll(async () => {
-      await prisma.cleanDatabase();
+      await prisma.user.delete({ where: { email: user.email } });
     });
 
     it('should pass if call to non existent user', async () => {
@@ -147,7 +150,7 @@ describe('Auth Flow', () => {
 
   describe('refresh', () => {
     beforeAll(async () => {
-      await prisma.cleanDatabase();
+      await prisma.user.delete({ where: { email: user.email } });
     });
 
     it('should throw if no existing user', async () => {
@@ -190,7 +193,7 @@ describe('Auth Flow', () => {
     });
 
     it('should throw if refresh token incorrect', async () => {
-      await prisma.cleanDatabase();
+      await prisma.user.delete({ where: { email: user.email } });
 
       const _tokens = await authService.signupLocal({
         email: user.email,
@@ -216,7 +219,7 @@ describe('Auth Flow', () => {
     });
 
     it('should refresh tokens', async () => {
-      await prisma.cleanDatabase();
+      await prisma.user.delete({ where: { email: user.email } });
       // log in the user again and save rt + at
       const _tokens = await authService.signupLocal({
         email: user.email,
