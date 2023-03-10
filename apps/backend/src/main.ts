@@ -3,7 +3,12 @@
  * This is only a minimal backend to get started.
  */
 
-import { INestApplication, Logger, RequestMethod, ValidationPipe } from '@nestjs/common';
+import {
+  INestApplication,
+  Logger,
+  RequestMethod,
+  ValidationPipe,
+} from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 

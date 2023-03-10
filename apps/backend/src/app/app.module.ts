@@ -10,9 +10,12 @@ import { AtGuard } from '../common/guards';
 @Module({
   imports: [AuthModule, UsersModule],
   controllers: [AppController],
-  providers: [AppService, {
-    provide: APP_GUARD,
-    useClass: AtGuard,
-  },],
+  providers: [
+    AppService,
+    {
+      provide: APP_GUARD,
+      useClass: AtGuard,
+    },
+  ],
 })
 export class AppModule {}

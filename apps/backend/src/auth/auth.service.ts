@@ -1,4 +1,8 @@
-import { ConflictException, ForbiddenException, Injectable } from '@nestjs/common';
+import {
+  ConflictException,
+  ForbiddenException,
+  Injectable,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Prisma } from '@prisma/client';
 import * as argon from 'argon2';
@@ -11,7 +15,7 @@ import { JwtPayload, Tokens } from './types';
 export class AuthService {
   constructor(
     private prisma: DatabaseService,
-    private jwtService: JwtService,
+    private jwtService: JwtService
   ) {}
 
   async signupLocal(dto: AuthDto): Promise<Tokens> {
