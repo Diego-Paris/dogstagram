@@ -3,7 +3,7 @@
  * This is only a minimal backend to get started.
  */
 
-import { INestApplication, Logger, RequestMethod } from '@nestjs/common';
+import { INestApplication, Logger, RequestMethod, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
@@ -23,6 +23,7 @@ async function bootstrap() {
   setupOpenApi(app);
   const databaseService = app.get(DatabaseService);
   await databaseService.enableShutdownHooks(app);
+  app.useGlobalPipes(new ValidationPipe());
 
   const port = process.env.PORT || 3333;
   await app.listen(port);
