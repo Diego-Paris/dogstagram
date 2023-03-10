@@ -50,7 +50,7 @@ export class AuthService {
       },
     });
 
-    if (!user) throw new ForbiddenException('Access Denied');
+    if (!user || user.deleted) throw new ForbiddenException('Access Denied');
 
     const passwordMatches = await argon.verify(user.password, dto.password);
     if (!passwordMatches) throw new ForbiddenException('Access Denied');
@@ -126,5 +126,11 @@ export class AuthService {
       access_token: at,
       refresh_token: rt,
     };
+  }
+
+  findUser(userWhereUniqueInput: Prisma.UserWhereUniqueInput) {
+    return this.prisma.user.findUnique({
+      where: userWhereUniqueInput,
+    });
   }
 }
